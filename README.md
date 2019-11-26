@@ -7,37 +7,17 @@
 > telegram 交流群:https://t.me/wulabing_v2ray
 
 #### 如果你遇到 PC 端可用，手机不可用的情况，请将手机调至飞行模式后再取消飞行模式，然后尝试连接
-### 2019-10-17
+### 2019-11-25
+>  本版本有可能解决 ws tls 的祖传断流玄学问题，如有需要请执行安装脚本进行更新
+* TLS配置修改为TLS1.3 only
+* Nginx 开启 HTTP/2 （不过没什么用 websocket 依旧是HTTP/1.1)
 
-> 建议遇到问题的用户重置系统后重新安装
-
-
-* 变更 添加 Nginx systemd serverfile
-* 修复 又双叒叕尝试修复 Nginx 开机自启动问题
-
-### 2019-10-16
-
-* 适配 Centos8 Debian10 Ubuntu19.04
-* 修复 部分系统下 计划任务不生效的问题
-* 修复 时间同步服务 在 Centos8 下无法安装的错误
-* 修复 部分系统下 证书不会自动更新的问题
-* 修复 部分系统下 Nginx 开机自启配置失效的问题
-* 变更 重复安装时，将不对相同的域名进行重复的证书申请，防止出现 Let's encrypt API 次数限制
-* 变更 默认 alterID 64 -> 4 ，减少资源占用
-* 变更 nginx 安装方式从源获取 变更为 编译安装，并使用新版Openssl，支持tls1.3
-* 变更 nginx 配置文件 ssl_protocols ssl_ciphers，适配 tls1.3
-* 变更 取消对Debian8 Ubuntu 16.04 的适配工作（本版本可能依旧可用）
-* 变更 默认页面伪装为 html5 小游戏
-* 新增 安装完成，节点配置信息留档
-* 新增 使用自定义证书
-* 新增 链接方式导入导入
-* 新增 二维码方式导入
 
 ### 使用自定义证书
 将crt和key文件命名为v2ray.crt v2ray.key 放在 /data 目录下（若目录不存在请先建目录）
 
 ### 查看客户端配置
-放在执行脚本所在目录下的 v2ray_info.txt
+用户 家目录下的 v2ray_info.txt
 
 推荐使用 `cat v2ray_info.txt` 查看
 
@@ -98,7 +78,7 @@ bash <(curl -L -s https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_o
 （其他的应该不用我多说了吧 嘿嘿嘿）
 ### 相关目录
 
-Web 目录：`/home/wwwroot/levis`
+Web 目录：`/home/wwwroot/3DCEList`
 
 V2ray 服务端配置：`/etc/v2ray/config.json`
 
