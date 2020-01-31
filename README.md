@@ -12,7 +12,17 @@
 * 每周日的凌晨3点，Nginx 会自动重启以配合证书的签发定时任务进行，在此期间，节点无法正常连接，预计持续时间为若干秒至两分钟
 
 ### 更新日志
-* 请查看 CHANGELOG.md
+> 更多内容请查看 CHANGELOG.md
+## 2020-01-25
+* 修复 curl依赖确实
+* 添加 MT-proxy-go 安装代码，在此感谢 whunt1 的贡献
+* 修复 测试签发成功，正式签发失败，后续重装导致的跳过证书签发问题
+
+### 鸣谢
+* ~~本脚本的另一个分支版本（Use Host）地址： https://github.com/dylanbai8/V2Ray_ws-tls_Website_onekey 请根据需求进行选择~~ 该作者可能已停止维护
+* 本脚本中 MTProxy-go TLS 版本项目引用 https://github.com/whunt1/onekeymakemtg 在此感谢
+* 本脚本中 锐速4合1脚本项目引用 https://www.94ish.me/1635.html 在此感谢
+
 ### 证书
 > 如果你已经拥有了你所使用域名的证书文件，可以将 crt 和 key 文件命名为 v2ray.crt v2ray.key 放在 /data 目录下（若目录不存在请先建目录），请注意证书文件权限及证书有效期，自定义证书有效期过期后请自行续签
 
@@ -53,14 +63,10 @@
 * 准备一个域名，并将A记录添加好。
 * [V2ray官方说明](https://www.v2ray.com/)，了解 TLS WebSocket 及 V2ray 相关信息
 * 安装好 curl
-### 安装/更新方式（二选一）
+### 安装/更新方式（h2 和 ws 版本已合并）
 Vmess+websocket+TLS+Nginx+Website
 ```
-bash <(curl -L -s https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/master/install.sh) | tee v2ray_ins.log
-```
-Vmess + HTTP2 over TLS
-```
-bash <(curl -L -s https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/master/install_h2.sh) | tee v2ray_ins_h2.log
+wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/master/install.sh" && chmod +x install.sh && bash install.sh
 ```
 ### 启动方式
 
